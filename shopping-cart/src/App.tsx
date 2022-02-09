@@ -8,6 +8,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
+import Cart from './cart/Cart';
 
 export interface CartItem {
   id: number;
@@ -32,11 +33,35 @@ const App = () => {
   );
 
   const getTotalItems = (items: CartItem[]) =>
-    items.reduce((acc: number, item) => (acc + item.amount, 0));
+    items.reduce((ack: number, item) => ack + item.amount, 0);
+
   const handleAddToCart = (clickedItem: CartItem) => {
-    return null;
+    setCartItems((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
   };
-  const handleRemoveFronCart = () => null;
+  const handleRemoveFronCart = (id: number) => {
+    setCartItems((prev) =>
+      prev.reduce((acc, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) {
+            return acc;
+          }
+          return [...acc, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...acc, item];
+        }
+      }, [] as CartItem[])
+    );
+  };
 
   if (isLoading) {
     return <LinearProgress />;
@@ -46,7 +71,11 @@ const App = () => {
   return (
     <Wrapper>
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
-        Cart goes here
+        <Cart
+          cartItems={cartItems}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFronCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color="primary">
