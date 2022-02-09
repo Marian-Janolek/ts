@@ -1,9 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/taskify/node_modules
-/notes/node_modules
-/shopping-cart/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
