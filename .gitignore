@@ -2,6 +2,7 @@
 
 # dependencies
 /taskify/node_modules
+/notes/node_modules
 /.pnp
 .pnp.js
 
