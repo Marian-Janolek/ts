@@ -1,0 +1,59 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+input {
+  padding: 0.5rem;
+  text-align: right;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid blue;
+}
+input:focus {
+  border-bottom: 2px solid blue;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.btns button {
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.btns button:active {
+  transform: scale(0.95);
+}
+.btns button:first-child {
+  background-color: rgb(145, 219, 135);
+}
+.btns button:nth-child(2) {
+  background-color: rgb(219, 135, 135);
+}
+.btns button:nth-child(3) {
+  background-color: rgb(135, 155, 219);
+}
