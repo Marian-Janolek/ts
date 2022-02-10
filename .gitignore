@@ -4,6 +4,8 @@
 /taskify/node_modules
 /notes/node_modules
 /shopping-cart/node_modules
+/bank/node_modules
+/pokemon/node_modules
 /.pnp
 .pnp.js
 
