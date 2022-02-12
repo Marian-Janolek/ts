@@ -6,6 +6,7 @@
 /shopping-cart/node_modules
 /bank/node_modules
 /pokemon/node_modules
+/restaurant/node_modules
 /.pnp
 .pnp.js
 
