@@ -52,5 +52,5 @@ UserSchema.methods.comparePassword = async function (
     .catch((error) => false);
 };
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model<UserDocument>('User', UserSchema);
 export default User;
